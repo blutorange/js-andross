@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "charset": "utf8",
+        "sourceMap": false,
+        "watch": false,
+        "allowUnreachableCode": false,
+        "removeComments": true,
+        "allowUnusedLabels": false,
+        "declaration": true,
+        "forceConsistentCasingInFileNames": true,
+        "importHelpers": true,
+        "noEmitOnError": true,
+        "noEmitHelpers": true,
+        "noImplicitReturns": true,
+        "pretty": true,
+        "noUnusedLocals": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictPropertyInitialization": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true
+    },
+    "exclude": [
+        "node_modules/**"
+    ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "andross",
+  "version": "1.0.0",
+  "description": "Common interfaces and types for typescript.",
+  "main": "main.js",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "doc": "npm run doc-create",
+    "doc-create": "npx typedoc --mode file --name js-andross --readme README.md --out docs --excludeExternals --excludePrivate --excludeNotExported --excludeProtected --theme minimal main.ts",
+    "clean": "rm -rf main.js main.d.ts docs",
+    "transpile": "npx tsc -p tsconfig.json",
+    "lint": "npx tslint -c tslint.json main.ts",
+    "build": "npm run clean && npm run lint && npm run transpile && npm run doc"
+  },
+  "types": "./main.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blutorange/js-andross.git"
+  },
+  "keywords": [
+    "interfaces",
+    "types"
+  ],
+  "author": "Andre Wachsmuth",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/blutorange/js-andross/issues"
+  },
+  "devDependencies": {
+    "tslib": "^1.9.0",
+    "typedoc": "^0.10.0",
+    "typescript": "^2.8.0-dev.20180202",
+    "tslint": "^5.9.1"
+  },
+  "homepage": "https://github.com/blutorange/js-andross#readme",
+  "dependencies": {}
+}
