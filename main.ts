@@ -454,10 +454,10 @@ export interface DeletableIterableIterator<T> extends IterableIterator<T>, Delet
  *   },
  *   supplier(): T[] {
  *     return [];
- *   }
+ *   },
  *   finisher(intermediate: T[]): Set<T> {
  *     return new Set(intermediate);
- *   }
+ *   },
  * };
  *
  * stream([1,2,3]).map(x => 2*x).collect(toSet());
