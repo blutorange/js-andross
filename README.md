@@ -54,4 +54,4 @@ npm run build
 
 # Teh name
 
-The great (inter-)face of [Andross](http://starfox.wikika.com/wiki/Andross).
+The great (inter-)face of [Andross](http://starfox.wikia.com/wiki/Andross).

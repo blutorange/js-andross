@@ -132,13 +132,13 @@ export type TypedFunction<T, R> = (arg: T)  => R;
 
 /**
  * Same as TypedFunction, but takes two arguments.
- * @see {@linked TypedFunction}
+ * @see {@link TypedFunction}
  */
 export type TypedBiFunction<T, S, R> = (arg1: T, arg2: S)  => R;
 
 /**
  * Same as TypedFunction, but takes three arguments.
- * @see {@linked TypedFunction}
+ * @see {@link TypedFunction}
  */
 export type TypedTriFunction<T, S, U, R> = (arg1: T, arg2: S, arg3: U)  => R;
 
@@ -438,4 +438,47 @@ export interface DeletableIterable<T> extends Iterable<T> {
 export interface DeletableIterableIterator<T> extends IterableIterator<T>, DeletableIterator<T> {
     next(remove?: boolean): IteratorResult<T>;
     [Symbol.iterator](): DeletableIterableIterator<T>;
+}
+
+/**
+ * A collector takes all items of a stream and incorporates them
+ * into a single object. It does this by first creating an intermediate
+ * container (eg. a Set), then processing all items (eg. adding them
+ * to the Set), and finally converting the intermediate value to the
+ * resulting value (eg. the size of the set).
+ *
+ * ```typescript
+ * function toSetT>(): Collector<T, any, Set<T>> {
+ *   accumulator(intermediate: T[], item: T) {
+ *     intermediate.push(item);
+ *   },
+ *   supplier(): T[] {
+ *     return [];
+ *   }
+ *   finisher(intermediate: T[]): Set<T> {
+ *     return new Set(intermediate);
+ *   }
+ * };
+ *
+ * stream([1,2,3]).map(x => 2*x).collect(toSet());
+ * ```
+ *
+ * @typeparam S Type of the items to be collected.
+ * @typeparam T Type of the intermediate object used while collecting.
+ * @typeparam R Type of the collected object.
+ */
+export interface Collector<S, T, R> {
+    /**
+     * Takes the intermediate object and the current object; and
+     * incorporates the current object into the intermediate object.
+     */
+    accumulator: BiConsumer<T, S>;
+    /**
+     * Creates a new intermediate object.
+     */
+    supplier: Supplier<T>;
+    /**
+     * Transform the intermediate object into the final result.
+     */
+    finisher: TypedFunction<T, R>;
 }

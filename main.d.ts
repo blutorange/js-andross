@@ -49,3 +49,8 @@ export interface DeletableIterableIterator<T> extends IterableIterator<T>, Delet
     next(remove?: boolean): IteratorResult<T>;
     [Symbol.iterator](): DeletableIterableIterator<T>;
 }
+export interface Collector<S, T, R> {
+    accumulator: BiConsumer<T, S>;
+    supplier: Supplier<T>;
+    finisher: TypedFunction<T, R>;
+}
