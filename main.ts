@@ -1,5 +1,5 @@
 /**
- * Represents an optional values. Absence of the value is indicated
+ * Represents an optional value. Absence of the value is indicated
  * by `undefined`. JavaScript provides tow different types for the notion of
  * absende, namely `null` and `undefined`, with minor semantic differences.
  * However, for the sake of clarity and simplicity, I am in favor of using only
@@ -36,6 +36,23 @@ export type Maybe<T> = T | undefined;
  * @typeparam T Type of the objects created by the constructor.
  */
 export type Constructor<T = {}> = new (...args: any[]) => T;
+
+/** A primitive JSON value. */
+export type JSONPrimitiveValue = null | undefined | string | number | boolean | Date;
+
+/** A JSON object. */
+export interface JSONObject {
+    [key: string]: JSONPrimitiveValue | JSONObject | JSONArray;
+}
+
+/** A JSON array. */
+export interface JSONArray extends Array<JSONPrimitiveValue|JSONObject|JSONArray> { }
+
+/** A JSON compound value (JSONArray or JSONObject). */
+export type JSONCompoundValue = JSONObject | JSONArray;
+
+/** A JSON value (primitive or compound). */
+export type JSONValue = JSONCompoundValue | JSONPrimitiveValue;
 
 /**
  * Consider an object with some known property keys. A partial is another
@@ -88,6 +105,48 @@ export type Constructor<T = {}> = new (...args: any[]) => T;
 export type DeepPartial<T> = {
     [P in keyof T]?: DeepPartial<T[P]>;
 };
+
+/**
+ * Omits a specified key from the given type.
+ *
+ * ```typescript
+ * // Takes a vector3 that does not need to have a z-coordinate.
+ * function projectToXY(vector: Omit<Vector3, "z"): Vector2 {
+ *   return {x: vector.x, y: vector.y};
+ * }
+ * ```
+ *
+ * @typeparam T Type of the base type from which to omit a property key.
+ * @typeparam K Type of the key to omit.
+ */
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+
+/**
+ * Takes a type and create a new type with some properties overwritten with a different type.
+ *
+ * ```typescript
+ * // Somewhere options are defined, and only an ID is required.
+ * interface Options {
+ *   id: number,
+ *   foo?: string,
+ *   bar?: string,
+ * }
+ *
+ * // ...
+ *
+ * // Now we want to create a function that takes an `Options` object,
+ * // but with the foo property mandatory.
+ * function createOptions(opts: Overwrite<Options, {foo: string}) {
+ *   console.log(opts.foo) // Now opts.foo cannot be undefined.
+ * }
+ * ```
+ *
+ * @typeparam T1 Type to be overwritten.
+ * @typeparam T2 Type with properties that overwrite those of the first type.
+ */
+export type Overwrite<T1, T2> = {
+    [P in Exclude<keyof T1, keyof T2>]: T1[P]
+} & T2;
 
 // Interfaces representing special types of functions. These are often used
 // in functional programming.
@@ -366,6 +425,38 @@ export interface KeyValueEntry<K, V> {
 }
 
 /**
+ * An object with string keys and a given value type.
+ *
+ * ```typescript
+ * const obj: StringObject<boolean> = {
+ *   foo: true,
+ *   bar: false,
+ * };
+ * ```
+ *
+ * @typeparam T Type of the values in the object.
+ */
+export interface StringObject<T> {
+    [key: string]: T;
+}
+
+/**
+ * An object with number keys and a given value type.
+ *
+ * ```typescript
+ * const obj: NumberObject<boolean> = {
+ *   4: true,
+ *   2: false,
+ * };
+ *
+ * ```
+ * @typeparam T Type of the values in the object.
+ */
+export interface NumberObject<T> {
+    [key: number]: T;
+}
+
+/**
  * An interface for comparable objects of the same type.
  * They are compared via a special method 'compareTo'.
  * @typeparam T Type of the objects to compare.
@@ -481,4 +572,66 @@ export interface Collector<S, T, R> {
      * Transform the intermediate object into the final result.
      */
     finisher: TypedFunction<T, R>;
+}
+
+// Mathematical types
+
+/**
+ * A one-dimensional vector with an x coordinate.
+ */
+export interface Vector1 {
+    /** The x-coordinate of this vector. */
+    x: number;
+}
+
+/**
+ * A two-dimensional vector with an x and y coordinate.
+ */
+export interface Vector2 {
+    /** The x-coordinate of this vector. */
+    x: number;
+    /** The y-coordinate of this vector. */
+    y: number;
+}
+
+/**
+ * A three-dimensional vector with an x, y and z coordinate.
+ */
+export interface Vector3 {
+    /** The x-coordinate of this vector. */
+    x: number;
+    /** The y-coordinate of this vector. */
+    y: number;
+    /** The z-coordinate of this vector. */
+    z: number;
+}
+
+/**
+ * A four-dimensional vector with four coordinates.
+ */
+export interface Vector4 {
+    /** The first coordinate of this vector. */
+    x1: number;
+    /** The second coordinate of this vector. */
+    x2: number;
+    /** The third coordinate of this vector. */
+    x3: number;
+    /** The fourth coordinate of this vector. */
+    x4: number;
+}
+
+/**
+ * A five-dimensional vector with four coordinates.
+ */
+export interface Vector5 {
+    /** The first coordinate of this vector. */
+    x1: number;
+    /** The second coordinate of this vector. */
+    x2: number;
+    /** The third coordinate of this vector. */
+    x3: number;
+    /** The fourth coordinate of this vector. */
+    x4: number;
+    /** The fifth coordinate of this vector. */
+    x5: number;
 }

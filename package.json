@@ -1,12 +1,12 @@
 {
   "name": "andross",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Common interfaces and types for typescript.",
   "main": "main.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "doc": "npm run doc-create",
-    "doc-create": "npx typedoc --mode file --name js-andross --readme README.md --out docs --excludeExternals --excludePrivate --excludeNotExported --excludeProtected --theme minimal main.ts",
+    "doc-create": "npx typedoc --mode file --name js-andross --readme README.md --out docs --excludeExternals --excludePrivate --excludeNotExported --excludeProtected --ignoreCompilerErrors --theme minimal main.ts",
     "clean": "rm -rf main.js main.d.ts docs",
     "transpile": "npx tsc -p tsconfig.json",
     "lint": "npx tslint -c tslint.json main.ts",
@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "tslib": "^1.9.0",
-    "typedoc": "^0.10.0",
-    "typescript": "^2.8.0-dev.20180202",
-    "tslint": "^5.9.1"
+    "tslint": "^5.9.1",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.8.3"
   },
   "homepage": "https://github.com/blutorange/js-andross#readme",
   "dependencies": {}

@@ -1,8 +1,20 @@
 export declare type Maybe<T> = T | undefined;
 export declare type Constructor<T = {}> = new (...args: any[]) => T;
+export declare type JSONPrimitiveValue = null | undefined | string | number | boolean | Date;
+export interface JSONObject {
+    [key: string]: JSONPrimitiveValue | JSONObject | JSONArray;
+}
+export interface JSONArray extends Array<JSONPrimitiveValue | JSONObject | JSONArray> {
+}
+export declare type JSONCompoundValue = JSONObject | JSONArray;
+export declare type JSONValue = JSONCompoundValue | JSONPrimitiveValue;
 export declare type DeepPartial<T> = {
     [P in keyof T]?: DeepPartial<T[P]>;
 };
+export declare type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+export declare type Overwrite<T1, T2> = {
+    [P in Exclude<keyof T1, keyof T2>]: T1[P];
+} & T2;
 export declare type Runnable = () => void;
 export declare type TypedFunction<T, R> = (arg: T) => R;
 export declare type TypedBiFunction<T, S, R> = (arg1: T, arg2: S) => R;
@@ -36,6 +48,12 @@ export interface KeyValueEntry<K, V> {
     key: K;
     value: V;
 }
+export interface StringObject<T> {
+    [key: string]: T;
+}
+export interface NumberObject<T> {
+    [key: number]: T;
+}
 export interface Comparable<T> {
     compareTo(rhs: T): number;
 }
@@ -53,4 +71,29 @@ export interface Collector<S, T, R> {
     accumulator: BiConsumer<T, S>;
     supplier: Supplier<T>;
     finisher: TypedFunction<T, R>;
+}
+export interface Vector1 {
+    x: number;
+}
+export interface Vector2 {
+    x: number;
+    y: number;
+}
+export interface Vector3 {
+    x: number;
+    y: number;
+    z: number;
+}
+export interface Vector4 {
+    x1: number;
+    x2: number;
+    x3: number;
+    x4: number;
+}
+export interface Vector5 {
+    x1: number;
+    x2: number;
+    x3: number;
+    x4: number;
+    x5: number;
 }

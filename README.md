@@ -1,4 +1,5 @@
-Common interfaces and types for typescript, such `Predicate` or `Maybe`. This is of no use if you do not use typescript. I made this because I often ended up needing and writing the same types for my projects.
+Common interfaces and types for typescript, such `Predicate` or `Maybe`. This is of no use if you do not use typescript.
+I made this because I often ended up needing and writing the same types for my projects.
 
 # Documentation
 [Documentation and list of all the interfaces and types.](https://blutorange.github.io/js-andross/)
@@ -39,7 +40,13 @@ class Users<T> {
 }
 ```
 
+
 See the [documentation](https://blutorange.github.io/js-andross/) for a list of all interfaces and types with a short description.
+
+# Changes
+
+- 0.3.0 Added Vector types (`Vector1`, `Vector2`, `Vector3`, `Vector4`, `Vector5`) as well as `Omit` and `Overwrite`
+- 0.2.0 Added JSON types.
 
 # Build
 
