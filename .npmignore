@@ -1,6 +1,10 @@
 .vscode
 .nyc_output
 babel.js
+docs
+
+tslint.json
+tsconfig.json
 *.tgz
 *.zip
 

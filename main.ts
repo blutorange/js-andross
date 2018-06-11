@@ -37,6 +37,15 @@ export type Maybe<T> = T | undefined;
  */
 export type Constructor<T = {}> = new (...args: any[]) => T;
 
+/**
+ * Interface for builders that create configured objects. Other instance
+ * methods should return `this` for chaining.
+ * @typeparam T Type of the objects that this builder builds.
+ */
+export interface Builder<T> {
+    build(): T;
+}
+
 /** A primitive JSON value. */
 export type JSONPrimitiveValue = null | undefined | string | number | boolean | Date;
 
@@ -107,7 +116,7 @@ export type DeepPartial<T> = {
 };
 
 /**
- * Omits a specified key from the given type.
+ * From T omit a set of properties K.
  *
  * ```typescript
  * // Takes a vector3 that does not need to have a z-coordinate.
@@ -120,6 +129,94 @@ export type DeepPartial<T> = {
  * @typeparam K Type of the key to omit.
  */
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+
+/**
+ * A type without all properties of the other type.
+ *
+ * ```typescript
+ * interface Options {
+ *   id: number;
+ *   name: string;
+ *   mail: string;
+ * }
+ *
+ * interface InternalOptions {
+ *   id: number;
+ * }
+ *
+ * let idProvider = 0;
+ * function createOptions<T>(additionalOptions: Partial<RemoveFrom<Options, InternalOptions>> = {}): Options {
+ *   return {
+ *     id: idProvider++,
+ *     mail: additionalOptions.mail || "foo@example.com"
+ *     name: additionalOptions.name || "foo",
+ *   };
+ * }
+ *
+ * // ...
+ *
+ * const opts1 = createOptions({name: "blutorange"}); // WORKS
+ * const opts2 = createOptions({id: 1}) // TYPE ERROR
+ * ```
+ * @typeparam T Type of the base type.
+ * @typeparam K Type whose properties are removed from T.
+ */
+export type RemoveFrom<T, K> = Pick<T, Exclude<keyof T, keyof K>>;
+
+/**
+ * Makes every property optional, except for the given ones.
+ *
+ * ```typescript
+ * interface Entity {
+ *   id: number;
+ *   uuid: string;
+ * }
+ *
+ * interface User extends Entity {
+ *   username: string;
+ *   active: boolean;
+ *   age: number;
+ *   mail: string;
+ *   name: string;
+ *   // ...
+ * }
+ *
+ * // Same as PartialExcept<User, "id" | "uuid">
+ * function createEntity<T extends Entity>(data: PartialExcept<User, keyof Entity>) {
+ *   // ...
+ * }
+ *
+ *
+ * createEntity({id: 1, uuid: "foo"}); // works
+ * createEntity({id: 1, age: 9}); // error: property uuid is missing
+ * ```
+ *
+ * @typeparam T Type of the base type.
+ * @typeparam K Type whose properties are not made partial in T.
+ */
+export type PartialExcept<T, K extends keyof T> = Partial<Omit<T, K>> & Pick<T, K>;
+
+/**
+ * Makes every given property optional.
+ *
+ * ```typescript
+ * interface User {
+ *   username: string;
+ *   active: boolean;
+ *   age: number;
+ *   mail: string;
+ *   name: string;
+ *   // ...
+ * }
+ *
+ * // Makes the properties age and mail optional.
+ * const user: PartialFor<User, "age" | "mail">;
+ * ```
+ *
+ * @typeparam T Type of the base type.
+ * @typeparam K Type whose properties are made partial in T.
+ */
+export type PartialFor<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 /**
  * Takes a type and create a new type with some properties overwritten with a different type.
@@ -381,25 +478,35 @@ export type KeyExtractor<T, K> = (item: T) => K;
 // Tuple and collection types.
 
 /** A 1-tuple with one element. */
-export type Single<T1> = [T1];
+export type Single   <T1>
+    = [T1];
 /** A 2-tuple with two elements. */
-export type Pair<T1, T2> = [T1, T2];
+export type Pair     <T1, T2 = T1>
+    = [T1, T2];
 /** A 3-tuple with three elements. */
-export type Triple<T1, T2, T3> = [T1, T2, T3];
+export type Triple   <T1, T2 = T1, T3 = T2>
+    = [T1, T2, T3];
 /** A 4-tuple with four elements. */
-export type Quadruple<T1, T2, T3, T4> = [T1, T2, T3, T4];
+export type Quadruple<T1, T2 = T1, T3 = T2, T4 = T3>
+    = [T1, T2, T3, T4];
 /** A 5-tuple with five elements. */
-export type Quintuple<T1, T2, T3, T4, T5> = [T1, T2, T3, T4, T5];
+export type Quintuple<T1, T2 = T1, T3 = T2, T4 = T3, T5 = T4>
+    = [T1, T2, T3, T4, T5];
 /** A 6-tuple with six elements. */
-export type Sextuple<T1, T2, T3, T4, T5, T6> = [T1, T2, T3, T4, T5, T6];
+export type Sextuple <T1, T2 = T1, T3 = T2, T4 = T3, T5 = T4, T6 = T5>
+    = [T1, T2, T3, T4, T5, T6];
 /** A 7-tuple with seven elements. */
-export type Septuple<T1, T2, T3, T4, T5, T6, T7> = [T1, T2, T3, T4, T5, T6, T7];
+export type Septuple <T1, T2 = T1, T3 = T2, T4 = T3, T5 = T4, T6 = T5, T7 = T6>
+    = [T1, T2, T3, T4, T5, T6, T7];
 /** An 8-tuple with eight elements. */
-export type Octuple<T1, T2, T3, T4, T5, T6, T7, T8> = [T1, T2, T3, T4, T5, T6, T7, T8];
+export type Octuple  <T1, T2 = T1, T3 = T2, T4 = T3, T5 = T4, T6 = T5, T7 = T6, T8 = T7>
+    = [T1, T2, T3, T4, T5, T6, T7, T8];
 /** A 9-tuple with nine elements. */
-export type Nonuple<T1, T2, T3, T4, T5, T6, T7, T8, T9> = [T1, T2, T3, T4, T5, T6, T7, T8, T9];
+export type Nonuple  <T1, T2 = T1, T3 = T2, T4 = T3, T5 = T4, T6 = T5, T7 = T6, T8 = T7, T9 = T8>
+    = [T1, T2, T3, T4, T5, T6, T7, T8, T9];
 /** A 10-tuple with ten elements. */
-export type Decuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> = [T1, T2, T3, T4, T5, T6, T7, T8, T9, T10];
+export type Decuple  <T1, T2 = T1, T3 = T2, T4 = T3, T5 = T4, T6 = T5, T7 = T6, T8 = T7, T9 = T8, T10 = T9>
+    = [T1, T2, T3, T4, T5, T6, T7, T8, T9, T10];
 
 /**
  * A key-value pair as an array tuple. Used eg. by Map#entries.

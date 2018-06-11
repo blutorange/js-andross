@@ -7,7 +7,7 @@
         "sourceMap": false,
         "watch": false,
         "allowUnreachableCode": false,
-        "removeComments": true,
+        "removeComments": false,
         "allowUnusedLabels": false,
         "declaration": true,
         "forceConsistentCasingInFileNames": true,

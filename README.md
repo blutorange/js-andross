@@ -45,7 +45,10 @@ See the [documentation](https://blutorange.github.io/js-andross/) for a list of 
 
 # Changes
 
-- 0.3.0 Added Vector types (`Vector1`, `Vector2`, `Vector3`, `Vector4`, `Vector5`) as well as `Omit` and `Overwrite`
+- 0.3.3 Added types `PartialExcept` (makes every property but the given optional) and `PartialFor` (makes every given property optional).
+- 0.3.2 Added `RemoveFrom`. Tuple types generics now default to the previous type, ie. `Pair<string>` is equivalent to `Pair<string, string>`.
+- 0.3.1 Added `Builder` type.
+- 0.3.0 Added Vector types (`Vector1`, `Vector2`, `Vector3`, `Vector4`, `Vector5`), `StringObject` and `NumberObject`, as well as `Omit` and `Overwrite`
 - 0.2.0 Added JSON types.
 
 # Build
