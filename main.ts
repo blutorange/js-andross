@@ -613,20 +613,36 @@ export interface KeyValueEntry<K, V> {
 }
 
 /**
+ * Similar to typescripts built-in type `Record`,
+ * but with the order of type parameters reverse
+ * and the keys being optional.
+ *
  * An object with string keys and a given value type.
+ * Optionally, you can limit the available keys to a
+ * set of given keys.
  *
  * ```typescript
  * const obj: StringObject<boolean> = {
  *   foo: true,
  *   bar: false,
+ *   foobar: false,
+ * };
+ *
+ * const obj2: StringObject<boolean, "foo" | "bar"> = {
+ *   foo: true,
+ *   bar: false,
+ *   // Object literal may only specify known properties, and 'foobar'
+ *   // does not exist in type 'StringObject<boolean, "foo" | "bar">'.
+ *   foobar: false
  * };
  * ```
  *
  * @typeparam T Type of the values in the object.
+ * @typeparam K Type of the available keys in the string object.
  */
-export interface StringObject<T> {
-    [key: string]: T;
-}
+export type StringObject<T, K extends keyof any = string> = {
+    [P in K]: T;
+};
 
 /**
  * An object with number keys and a given value type.
