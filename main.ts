@@ -197,6 +197,28 @@ export type RemoveFrom<T, K> = Pick<T, Exclude<keyof T, keyof K>>;
 export type PartialExcept<T, K extends keyof T> = Partial<Omit<T, K>> & Pick<T, K>;
 
 /**
+ * Makes every given property readonly, except for the given properties.
+ *
+ * ```typescript
+ * interface User {
+ *   username: string;
+ *   active: boolean;
+ *   age: number;
+ *   mail: string;
+ *   name: string;
+ *   // ...
+ * }
+ *
+ * // Makes all properties but age and mail readonly.
+ * declare const user: ReadonlyExcept<User, "age" | "mail">;
+ * ```
+ *
+ * @typeparam T Type of the base type.
+ * @typeparam K Type whose properties are not made readonly in T.
+ */
+export type ReadonlyExcept<T, K extends keyof T> = Readonly<Omit<T, K>> & Pick<T, K>;
+
+/**
  * Makes every given property optional.
  *
  * ```typescript
@@ -210,13 +232,72 @@ export type PartialExcept<T, K extends keyof T> = Partial<Omit<T, K>> & Pick<T, 
  * }
  *
  * // Makes the properties age and mail optional.
- * const user: PartialFor<User, "age" | "mail">;
+ * declare const user: PartialFor<User, "age" | "mail">;
  * ```
  *
  * @typeparam T Type of the base type.
  * @typeparam K Type whose properties are made partial in T.
  */
 export type PartialFor<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+/**
+ * Makes every given property readonly.
+ *
+ * ```typescript
+ * interface User {
+ *   username: string;
+ *   active: boolean;
+ *   age: number;
+ *   mail: string;
+ *   name: string;
+ *   // ...
+ * }
+ *
+ * // Makes the properties age and mail readonly.
+ * declare const user: ReadonlyFor<User, "age" | "mail">;
+ * ```
+ *
+ * @typeparam T Type of the base type.
+ * @typeparam K Type whose properties are made readonly in T.
+ */
+export type ReadonlyFor<T, K extends keyof T> = Omit<T, K> & Readonly<Pick<T, K>>;
+
+/**
+ * Gives all property keys whose types match the given type.
+ *
+ * ```typescript
+ * export interface User {
+ *   active: boolean;
+ *   age: number;
+ *   mail: string;
+ *   name: string;
+ *   username: string;
+ * }
+ *
+ * export function foo(stringKey: MatchingKeys<User, string>) {
+ *   // Variable stringKey now has the type
+ *   // "mail" | "name" | "username"
+ *   const b1 = stringKey === "mail"; // works
+ *   const b2 = stringKey === "name"; // works
+ *   const b3 = stringKey === "username"; // works
+ *   // [ts] Operator '===' cannot be applied to types '"mail" | "name" | "username"' and '"active"'.
+ *   const b4 = stringKey === "active";
+ * }
+ *
+ * // Variable advanced now has the type
+ * // "mail" | "name"
+ * declare const advanced = MatchingKeys<User, string, "age" | "mail" | "name">;
+ * ```
+ *
+ * @typeparam TRecord Type of the base type. This is the type whose keys are searched for a match.
+ * @typeparam TMatch Type to match the keys of the record against.
+ * @typeparam K Type whose keys are considered in the output. Defaults to the keys of the record.
+ */
+export type MatchingKeys<
+  TRecord,
+  TMatch,
+  K extends keyof TRecord = keyof TRecord
+> = K extends (TRecord[K] extends TMatch ? K : never) ? K : never;
 
 /**
  * Takes a type and create a new type with some properties overwritten with a different type.
@@ -681,7 +762,33 @@ export interface Collector<S, T, R> {
     finisher: TypedFunction<T, R>;
 }
 
-// Mathematical types
+// Data types
+
+/**
+ * A rectangular area, specified by the top-left and bottom-right
+ * corner; or its top-right and bottom-left corner.
+ */
+export interface MinMaxRectangle {
+    minX: number;
+    minY: number;
+    maxX: number;
+    maxY: number;
+}
+
+/**
+ * The position and size of a rectangular area, with a position,
+ * a width, and a height. The position is a reference point on
+ * the rectangle, ie. the top-left corner or the center point.
+ */
+export interface Rectangle extends Vector2, RectSize {}
+
+/**
+ * The size of a rectangular area with a width and height.
+ */
+export interface RectSize {
+    height: number;
+    width: number;
+}
 
 /**
  * A one-dimensional vector with an x coordinate.
@@ -742,3 +849,23 @@ export interface Vector5 {
     /** The fifth coordinate of this vector. */
     x5: number;
 }
+
+// String constants
+
+/** List of the four cardinal directions. */
+export type CardinalDirection4 = "North" | "East" | "South" | "West";
+
+/** List of the eight cardinal directions. */
+export type CardinalDirection8 = CardinalDirection4 | "Northeast" | "Southeast" | "Southwest" | "Northwest" ;
+
+/** List of the sixteen cardinal directions. */
+export type CardinalDirection16 = CardinalDirection8 |
+    "NorthNortheast" | "EastNortheast" | "EastSoutheast" | "SouthSoutheast" |
+    "SouthSouthwest" | "WestSouthwest" | "WestNorthwest" | "NorthNorthwest";
+
+/** List of the thirty-two cardinal directions. */
+export type CardinalDirection32 = CardinalDirection16 |
+    "NorthByEast" | "NortheastByNorth" | "NortheastByEast" | "EastByNorth" |
+    "EastBySouth" | "SoutheastByEast" | "SoutheastBySouth" | "SouthByEast" |
+    "SouthByWest" | "SouthwestBySouth" | "SouthwestByWest" | "WestBySouth" |
+    "WestByNorth" | "NorthwestByWest" | "NorthwestByNorth" | "NorthByWest";

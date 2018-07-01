@@ -40,11 +40,21 @@ class Users<T> {
 }
 ```
 
+# Enums
+
+As of version 0.3.4, this package also includes some predefined enumerations. Since these are not purely type definitions and contribute to
+the size of a bundle, they are placed in a separate file and not included in the main file:
+
+```typescript
+import { CardinalDirection4 } from "andross/enum";
+const north = CardinalDirection4.North;
+```
 
 See the [documentation](https://blutorange.github.io/js-andross/) for a list of all interfaces and types with a short description.
 
 # Changes
 
+- 0.3.4 Addes types `RectSize`, `Rectangle`, `MinMaxRectangle`, `CardinalDirection4/8/16/32`, `ReadonlyFor`, `ReadonlyExcept`, `MatchingKeys`.
 - 0.3.3 Added types `PartialExcept` (makes every property but the given optional) and `PartialFor` (makes every given property optional).
 - 0.3.2 Added `RemoveFrom`. Tuple types generics now default to the previous type, ie. `Pair<string>` is equivalent to `Pair<string, string>`.
 - 0.3.1 Added `Builder` type.

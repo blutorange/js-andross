@@ -16,6 +16,7 @@
         "interface-name": {
             "options": "never-prefix"
         },
+        "object-literal-sort-keys": true,
         "one-line": false
     },
     "rulesDirectory": []
