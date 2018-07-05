@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>StringObject | js-andross</title>
+	<title>Circle | js-andross</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -907,8 +907,19 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class="current tsd-kind-interface tsd-has-type-parameter">
-			<a href="stringobject.html" class="tsd-kind-icon">String<wbr>Object</a>
+		<li class="current tsd-kind-interface">
+			<a href="circle.html" class="tsd-kind-icon">Circle</a>
+			<ul>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="circle.html#radius" class="tsd-kind-icon">radius</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a href="circle.html#x" class="tsd-kind-icon">x</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a href="circle.html#y" class="tsd-kind-icon">y</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 </nav>
@@ -917,49 +928,82 @@ img { max-width: 100%; }
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>An object with string keys and a given value type.</p>
+					<p>A circle with a given radius. The position is relative to a point of your definition.</p>
 				</div>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> obj: StringObject&lt;<span class="hljs-built_in">boolean</span>&gt; = {
-  foo: <span class="hljs-literal">true</span>,
-  bar: <span class="hljs-literal">false</span>,
-};
-</code></pre>
 			</div>
-		</section>
-		<section class="tsd-panel tsd-type-parameters">
-			<h3>Type parameters</h3>
-			<ul class="tsd-type-parameters">
-				<li>
-					<h4>T</h4>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type of the values in the object.</p>
-						</div>
-					</div>
-				</li>
-			</ul>
 		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="target">StringObject</span>
+					<a href="vector2.html" class="tsd-signature-type">Vector2</a>
+					<ul class="tsd-hierarchy">
+						<li>
+							<span class="target">Circle</span>
+						</li>
+					</ul>
 				</li>
 			</ul>
 		</section>
-		<section class="tsd-panel tsd-kind-interface tsd-has-type-parameter">
-			<h3 class="tsd-before-signature">Indexable</h3>
-			<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">T</span></div>
-			<div class="tsd-comment tsd-typography">
-				<div class="lead">
-					<p>An object with string keys and a given value type.</p>
+		<section class="tsd-panel-group tsd-index-group">
+			<h2>Index</h2>
+			<section class="tsd-panel tsd-index-panel">
+				<div class="tsd-index-content">
+					<section class="tsd-index-section ">
+						<h3>Properties</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="circle.html#radius" class="tsd-kind-icon">radius</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="circle.html#x" class="tsd-kind-icon">x</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="circle.html#y" class="tsd-kind-icon">y</a></li>
+						</ul>
+					</section>
 				</div>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> obj: StringObject&lt;<span class="hljs-built_in">boolean</span>&gt; = {
-  foo: <span class="hljs-literal">true</span>,
-  bar: <span class="hljs-literal">false</span>,
-};
-</code></pre>
-			</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Properties</h2>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="radius" class="tsd-anchor"></a>
+				<h3>radius</h3>
+				<div class="tsd-signature tsd-kind-icon">radius<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/d73571a/main.ts#L803">main.ts:803</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<a name="x" class="tsd-anchor"></a>
+				<h3>x</h3>
+				<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="vector2.html">Vector2</a>.<a href="vector2.html#x">x</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/d73571a/main.ts#L827">main.ts:827</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The x-coordinate of this vector.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<a name="y" class="tsd-anchor"></a>
+				<h3>y</h3>
+				<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="vector2.html">Vector2</a>.<a href="vector2.html#y">y</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/d73571a/main.ts#L829">main.ts:829</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The y-coordinate of this vector.</p>
+					</div>
+				</div>
+			</section>
 		</section>
 		<footer class="with-border-bottom">
 			<div class="container">

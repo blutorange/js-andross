@@ -54,8 +54,8 @@ See the [documentation](https://blutorange.github.io/js-andross/) for a list of 
 
 # Changes
 
-- 0.3.5 Added a type parameter `K` to `StringObject`, allowing you to restrict the available keys.
-- 0.3.4 Addes types `RectSize`, `Rectangle`, `MinMaxRectangle`, `CardinalDirection4/8/16/32`, `ReadonlyFor`, `ReadonlyExcept`, `MatchingKeys`.
+- 0.3.5 Added an optional type parameter `K` to `StringObject`, allowing you to restrict the available keys. Also removed the `*.ts` source files from the NPM package. The source file made webpack with `ts-loader` work incorrectly.
+- 0.3.4 Added types `RectSize`, `Rectangle`, `MinMaxRectangle`, `CardinalDirection4/8/16/32`, `ReadonlyFor`, `ReadonlyExcept`, `MatchingKeys`.
 - 0.3.3 Added types `PartialExcept` (makes every property but the given optional) and `PartialFor` (makes every given property optional).
 - 0.3.2 Added `RemoveFrom`. Tuple types generics now default to the previous type, ie. `Pair<string>` is equivalent to `Pair<string, string>`.
 - 0.3.1 Added `Builder` type.

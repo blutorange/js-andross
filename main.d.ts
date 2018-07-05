@@ -557,20 +557,36 @@ export interface KeyValueEntry<K, V> {
     value: V;
 }
 /**
+ * Similar to typescripts built-in type `Record`,
+ * but with the order of type parameters reverse
+ * and the keys being optional.
+ *
  * An object with string keys and a given value type.
+ * Optionally, you can limit the available keys to a
+ * set of given keys.
  *
  * ```typescript
  * const obj: StringObject<boolean> = {
  *   foo: true,
  *   bar: false,
+ *   foobar: false,
+ * };
+ *
+ * const obj2: StringObject<boolean, "foo" | "bar"> = {
+ *   foo: true,
+ *   bar: false,
+ *   // Object literal may only specify known properties, and 'foobar'
+ *   // does not exist in type 'StringObject<boolean, "foo" | "bar">'.
+ *   foobar: false
  * };
  * ```
  *
  * @typeparam T Type of the values in the object.
+ * @typeparam K Type of the available keys in the string object.
  */
-export interface StringObject<T> {
-    [key: string]: T;
-}
+export declare type StringObject<T, K extends keyof any = string> = {
+    [P in K]: T;
+};
 /**
  * An object with number keys and a given value type.
  *
@@ -713,6 +729,10 @@ export interface MinMaxRectangle {
  * the rectangle, ie. the top-left corner or the center point.
  */
 export interface Rectangle extends Vector2, RectSize {
+}
+/** A circle with a given radius. The position is relative to a point of your definition. */
+export interface Circle extends Vector2 {
+    radius: number;
 }
 /**
  * The size of a rectangular area with a width and height.
