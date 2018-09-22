@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Collector | js-andross</title>
+	<title>Circle | js-andross</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -907,17 +907,17 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class="current tsd-kind-interface tsd-has-type-parameter">
-			<a href="collector.html" class="tsd-kind-icon">Collector</a>
+		<li class="current tsd-kind-interface">
+			<a href="circle.html" class="tsd-kind-icon">Circle</a>
 			<ul>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="collector.html#accumulator" class="tsd-kind-icon">accumulator</a>
+					<a href="circle.html#radius" class="tsd-kind-icon">radius</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="collector.html#finisher" class="tsd-kind-icon">finisher</a>
+				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a href="circle.html#x" class="tsd-kind-icon">x</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="collector.html#supplier" class="tsd-kind-icon">supplier</a>
+				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a href="circle.html#y" class="tsd-kind-icon">y</a>
 				</li>
 			</ul>
 		</li>
@@ -928,61 +928,20 @@ img { max-width: 100%; }
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>A collector takes all items of a stream and incorporates them
-						into a single object. It does this by first creating an intermediate
-						container (eg. a Set), then processing all items (eg. adding them
-						to the Set), and finally converting the intermediate value to the
-					resulting value (eg. the size of the set).</p>
+					<p>A circle with a given radius. The position is relative to a point of your definition.</p>
 				</div>
-				<pre><code class="language-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toSetT</span>&gt;(<span class="hljs-params"></span>): <span class="hljs-title">Collector</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">any</span>, <span class="hljs-title">Set</span>&lt;<span class="hljs-title">T</span>&gt;&gt; </span>{
-  accumulator(intermediate: T[], item: T) {
-    intermediate.push(item);
-  },
-  supplier(): T[] {
-    <span class="hljs-keyword">return</span> [];
-  },
-  finisher(intermediate: T[]): Set&lt;T&gt; {
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Set(intermediate);
-  },
-};
-
-stream([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]).map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-number">2</span>*x).collect(toSet());</code></pre>
 			</div>
-		</section>
-		<section class="tsd-panel tsd-type-parameters">
-			<h3>Type parameters</h3>
-			<ul class="tsd-type-parameters">
-				<li>
-					<h4>S</h4>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type of the items to be collected.</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<h4>T</h4>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type of the intermediate object used while collecting.</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<h4>R</h4>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type of the collected object.</p>
-						</div>
-					</div>
-				</li>
-			</ul>
 		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="target">Collector</span>
+					<a href="vector2.html" class="tsd-signature-type">Vector2</a>
+					<ul class="tsd-hierarchy">
+						<li>
+							<span class="target">Circle</span>
+						</li>
+					</ul>
 				</li>
 			</ul>
 		</section>
@@ -993,9 +952,9 @@ stream([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<s
 					<section class="tsd-index-section ">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="collector.html#accumulator" class="tsd-kind-icon">accumulator</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="collector.html#finisher" class="tsd-kind-icon">finisher</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="collector.html#supplier" class="tsd-kind-icon">supplier</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="circle.html#radius" class="tsd-kind-icon">radius</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="circle.html#x" class="tsd-kind-icon">x</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="circle.html#y" class="tsd-kind-icon">y</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1004,48 +963,44 @@ stream([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<s
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="accumulator" class="tsd-anchor"></a>
-				<h3>accumulator</h3>
-				<div class="tsd-signature tsd-kind-icon">accumulator<span class="tsd-signature-symbol">:</span> <a href="../globals.html#biconsumer" class="tsd-signature-type">BiConsumer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<a name="radius" class="tsd-anchor"></a>
+				<h3>radius</h3>
+				<div class="tsd-signature tsd-kind-icon">radius<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/dcbb21e/main.ts#L807">main.ts:807</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/dcbb21e/main.ts#L840">main.ts:840</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<a name="x" class="tsd-anchor"></a>
+				<h3>x</h3>
+				<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="vector2.html">Vector2</a>.<a href="vector2.html#x">x</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/dcbb21e/main.ts#L864">main.ts:864</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Takes the intermediate object and the current object; and
-						incorporates the current object into the intermediate object.</p>
+						<p>The x-coordinate of this vector.</p>
 					</div>
 				</div>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="finisher" class="tsd-anchor"></a>
-				<h3>finisher</h3>
-				<div class="tsd-signature tsd-kind-icon">finisher<span class="tsd-signature-symbol">:</span> <a href="../globals.html#typedfunction" class="tsd-signature-type">TypedFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></div>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<a name="y" class="tsd-anchor"></a>
+				<h3>y</h3>
+				<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
+					<p>Inherited from <a href="vector2.html">Vector2</a>.<a href="vector2.html#y">y</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/dcbb21e/main.ts#L815">main.ts:815</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/dcbb21e/main.ts#L866">main.ts:866</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Transform the intermediate object into the final result.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="supplier" class="tsd-anchor"></a>
-				<h3>supplier</h3>
-				<div class="tsd-signature tsd-kind-icon">supplier<span class="tsd-signature-symbol">:</span> <a href="../globals.html#supplier" class="tsd-signature-type">Supplier</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/dcbb21e/main.ts#L811">main.ts:811</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Creates a new intermediate object.</p>
+						<p>The y-coordinate of this vector.</p>
 					</div>
 				</div>
 			</section>

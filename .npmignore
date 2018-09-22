@@ -5,6 +5,8 @@ docs
 
 tslint.json
 tsconfig.json
+enum.ts
+main.ts
 *.tgz
 *.zip
 

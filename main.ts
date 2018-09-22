@@ -835,6 +835,11 @@ export interface MinMaxRectangle {
  */
 export interface Rectangle extends Vector2, RectSize {}
 
+/** A circle with a given radius. The position is relative to a point of your definition. */
+export interface Circle extends Vector2 {
+    radius: number;
+}
+
 /**
  * The size of a rectangular area with a width and height.
  */
