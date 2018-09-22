@@ -1,6 +1,9 @@
 Common interfaces and types for typescript, such `Predicate` or `Maybe`. This is of no use if you do not use typescript.
 I made this because I often ended up needing and writing the same types for my projects.
 
+Types are used only when transpiling, they do not end up in the transpiled code. Ie, your 
+transpiled code does not get bigger by using this library.
+
 # Documentation
 [Documentation and list of all the interfaces and types.](https://blutorange.github.io/js-andross/)
 
@@ -54,6 +57,7 @@ See the [documentation](https://blutorange.github.io/js-andross/) for a list of 
 
 # Changes
 
+- 0.3.6 Added type `Equatable` and added defaults for type parameters of `BiConsumer`/`TriConsumer` and `BiSupplier`/`TriSupplier`.
 - 0.3.5 Added a type parameter `K` to `StringObject`, allowing you to restrict the available keys.
 - 0.3.4 Addes types `RectSize`, `Rectangle`, `MinMaxRectangle`, `CardinalDirection4/8/16/32`, `ReadonlyFor`, `ReadonlyExcept`, `MatchingKeys`.
 - 0.3.3 Added types `PartialExcept` (makes every property but the given optional) and `PartialFor` (makes every given property optional).

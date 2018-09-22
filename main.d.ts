@@ -341,17 +341,17 @@ export declare type Runnable = () => void;
  * @typeparam T Type of the function's argument.
  * @typeparam R Type of the function's return value.
  */
-export declare type TypedFunction<T, R> = (arg: T) => R;
+export declare type TypedFunction<TParam1, TReturn> = (arg: TParam1) => TReturn;
 /**
  * Same as TypedFunction, but takes two arguments.
  * @see {@link TypedFunction}
  */
-export declare type TypedBiFunction<T, S, R> = (arg1: T, arg2: S) => R;
+export declare type TypedBiFunction<TParam1, TParam2, TReturn> = (arg1: TParam1, arg2: TParam2) => TReturn;
 /**
  * Same as TypedFunction, but takes three arguments.
  * @see {@link TypedFunction}
  */
-export declare type TypedTriFunction<T, S, U, R> = (arg1: T, arg2: S, arg3: U) => R;
+export declare type TypedTriFunction<TParam1, TParam2, TParam3, TReturn> = (arg1: TParam1, arg2: TParam2, arg3: TParam3) => TReturn;
 /**
  * A supplier produces a value without an explicit input.
  *
@@ -375,12 +375,12 @@ export declare type Supplier<T> = () => T;
  * Same as a Supplier, but returns two items.
  * @see {@link Supplier}
  */
-export declare type BiSupplier<T, S> = () => Pair<T, S>;
+export declare type BiSupplier<T1, T2 = T1> = () => Pair<T1, T2>;
 /**
  * Same as a Supplier, but returns three items.
  * @see {@link Supplier}
  */
-export declare type TriSupplier<T, S, U> = () => Triple<T, S, U>;
+export declare type TriSupplier<T1, T2 = T1, T3 = T2> = () => Triple<T1, T2, T3>;
 /**
  * A consumer is a sink that takes an item and performs some action with it, but
  * does not return anything.
@@ -400,12 +400,12 @@ export declare type Consumer<T> = (item: T) => void;
  * Same as Consumer, but accepts two items to be consumed.
  * @see {@link Consumer}
  */
-export declare type BiConsumer<T, S> = (item1: T, item2: S) => void;
+export declare type BiConsumer<T1, T2 = T1> = (item1: T1, item2: T2) => void;
 /**
  * Same as Consumer, but accepts three items to be consumed.
  * @see {@link Consumer}
  */
-export declare type TriConsumer<T, S, U> = (item1: T, item2: S, item3: U) => void;
+export declare type TriConsumer<T1, T2 = T1, T3 = T1> = (item1: T1, item2: T2, item3: T3) => void;
 /**
  * An operator takes an item of a given type and computes a result of the
  * same type.
@@ -446,11 +446,11 @@ export declare type Predicate<T> = (item: T) => boolean;
 /**
  * Same as Predicate, but accepts two parameters.
  */
-export declare type BiPredicate<T, S> = (item1: T, item2: S) => boolean;
+export declare type BiPredicate<T1, T2 = T1> = (item1: T1, item2: T2) => boolean;
 /**
  * Same as Predicate, but accepts three parameters.
  */
-export declare type TriPredicate<T, S, U> = (item1: T, item2: S, item3: U) => boolean;
+export declare type TriPredicate<T1, T2 = T1, T3 = T2> = (item1: T1, item2: T2, item3: T3) => boolean;
 /**
  * An equator that takes to items and checks whether they are
  * equal to each other.
@@ -557,20 +557,36 @@ export interface KeyValueEntry<K, V> {
     value: V;
 }
 /**
+ * Similar to typescripts built-in type `Record`,
+ * but with the order of type parameters reverse
+ * and the keys being optional.
+ *
  * An object with string keys and a given value type.
+ * Optionally, you can limit the available keys to a
+ * set of given keys.
  *
  * ```typescript
  * const obj: StringObject<boolean> = {
  *   foo: true,
  *   bar: false,
+ *   foobar: false,
+ * };
+ *
+ * const obj2: StringObject<boolean, "foo" | "bar"> = {
+ *   foo: true,
+ *   bar: false,
+ *   // Object literal may only specify known properties, and 'foobar'
+ *   // does not exist in type 'StringObject<boolean, "foo" | "bar">'.
+ *   foobar: false
  * };
  * ```
  *
  * @typeparam T Type of the values in the object.
+ * @typeparam K Type of the available keys in the string object.
  */
-export interface StringObject<T> {
-    [key: string]: T;
-}
+export declare type StringObject<T, K extends keyof any = string> = {
+    [P in K]: T;
+};
 /**
  * An object with number keys and a given value type.
  *
@@ -618,6 +634,41 @@ export interface NumberObject<T> {
  */
 export interface Comparable<T> {
     compareTo(rhs: T): number;
+}
+/**
+ * An interface for equatable objects of the same type.
+ * They are checked for equality via a special method `equals`.
+ * @typeparam T Type of the objects to compare.
+ *
+ * ```
+ * class Entity implements Equatable<Entity> {
+ *   private id: number;
+ *   private name: string;
+ *   private mail: string;
+ *
+ *   constructor(id: number, name: string, mail: string) {
+ *     this.id = id;
+ *     this.name = name;
+ *     this.mail = mail;
+ *   }
+ *
+ *   equals(rhs: Entity) {
+ *     return rhs !== undefined && this.id === rhs.id;
+ *   }
+ * }
+ * const user = DatabaseAPI.getById(1);
+ *
+ * // ... some code
+ *
+ * // This creates a new user instance
+ * const sameUser = DatabaseAPI.getById(1);
+ *
+ * user === sameUser; // => false
+ * user.equals(sameUser) // => true
+ * ```
+ */
+export interface Equatable<T> {
+    equals(rhs: T): boolean;
 }
 /**
  * An iterator that deletes the item when the `next` method is passed true.

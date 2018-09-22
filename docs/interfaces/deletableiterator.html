@@ -931,15 +931,14 @@ img { max-width: 100%; }
 					<p>An iterator that deletes the item when the <code>next</code> method is passed true.
 					Often used with collections when iterating over their items.</p>
 				</div>
-				<pre><code class="lang-typescript"><span class="hljs-comment">// Create a new collection, add some numbers, iterate over them, delete</span>
+				<pre><code class="language-typescript"><span class="hljs-comment">// Create a new collection, add some numbers, iterate over them, delete</span>
 <span class="hljs-comment">// those numbers that are odd.</span>
 collection = build&lt;<span class="hljs-built_in">number</span>&gt;(<span class="hljs-string">"hashedUnique"</span>);
 collection.addAll[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>]);
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> it = collection.values(), result = it.next(), remove = <span class="hljs-literal">false</span>; !result.done; result = it.next(remove)) {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Processing item"</span>, result.value);
   remove = result.value % <span class="hljs-number">2</span> === <span class="hljs-number">1</span>;
-}
-</code></pre>
+}</code></pre>
 			</div>
 		</section>
 		<section class="tsd-panel tsd-type-parameters">
@@ -994,20 +993,20 @@ collection.addAll[<span class="hljs-number">1</span>,<span class="hljs-number">2
 				<a name="next" class="tsd-anchor"></a>
 				<h3>next</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">(</span>remove<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">(</span>remove<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Overrides Iterator.next</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/d15f0e9/main.ts#L701">main.ts:701</a></li>
+								<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/d73571a/main.ts#L754">main.ts:754</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> remove: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> remove: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1025,7 +1024,7 @@ collection.addAll[<span class="hljs-number">1</span>,<span class="hljs-number">2
 						<aside class="tsd-sources">
 							<p>Inherited from Iterator.return</p>
 							<ul>
-								<li>Defined in node_modules/typedoc/node_modules/typescript/lib/lib.es2015.iterable.d.ts:38</li>
+								<li>Defined in node_modules/typescript/lib/lib.es2015.iterable.d.ts:38</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1049,7 +1048,7 @@ collection.addAll[<span class="hljs-number">1</span>,<span class="hljs-number">2
 						<aside class="tsd-sources">
 							<p>Inherited from Iterator.throw</p>
 							<ul>
-								<li>Defined in node_modules/typedoc/node_modules/typescript/lib/lib.es2015.iterable.d.ts:39</li>
+								<li>Defined in node_modules/typescript/lib/lib.es2015.iterable.d.ts:39</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>

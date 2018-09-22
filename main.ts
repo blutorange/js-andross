@@ -365,19 +365,20 @@ export type Runnable = () => void;
  * @typeparam T Type of the function's argument.
  * @typeparam R Type of the function's return value.
  */
-export type TypedFunction<T, R> = (arg: T)  => R;
+export type TypedFunction<TParam1, TReturn> = (arg: TParam1)  => TReturn;
 
 /**
  * Same as TypedFunction, but takes two arguments.
  * @see {@link TypedFunction}
  */
-export type TypedBiFunction<T, S, R> = (arg1: T, arg2: S)  => R;
+export type TypedBiFunction<TParam1, TParam2, TReturn> = (arg1: TParam1, arg2: TParam2)  => TReturn;
 
 /**
  * Same as TypedFunction, but takes three arguments.
  * @see {@link TypedFunction}
  */
-export type TypedTriFunction<T, S, U, R> = (arg1: T, arg2: S, arg3: U)  => R;
+export type TypedTriFunction<TParam1, TParam2, TParam3, TReturn> =
+    (arg1: TParam1, arg2: TParam2, arg3: TParam3) => TReturn;
 
 /**
  * A supplier produces a value without an explicit input.
@@ -403,13 +404,13 @@ export type Supplier<T> = () => T;
  * Same as a Supplier, but returns two items.
  * @see {@link Supplier}
  */
-export type BiSupplier<T, S> = () => Pair<T, S>;
+export type BiSupplier<T1, T2 = T1> = () => Pair<T1, T2>;
 
 /**
  * Same as a Supplier, but returns three items.
  * @see {@link Supplier}
  */
-export type TriSupplier<T, S, U> = () => Triple<T, S, U>;
+export type TriSupplier<T1, T2 = T1, T3 = T2> = () => Triple<T1, T2, T3>;
 
 /**
  * A consumer is a sink that takes an item and performs some action with it, but
@@ -431,13 +432,13 @@ export type Consumer<T> = (item: T)  => void;
  * Same as Consumer, but accepts two items to be consumed.
  * @see {@link Consumer}
  */
-export type BiConsumer<T, S> = (item1: T, item2: S)  => void;
+export type BiConsumer<T1, T2 = T1> = (item1: T1, item2: T2)  => void;
 
 /**
  * Same as Consumer, but accepts three items to be consumed.
  * @see {@link Consumer}
  */
-export type TriConsumer<T, S, U> = (item1: T, item2: S, item3: U)  => void;
+export type TriConsumer<T1, T2 = T1, T3 = T1> = (item1: T1, item2: T2, item3: T3)  => void;
 
 /**
  * An operator takes an item of a given type and computes a result of the
@@ -482,12 +483,12 @@ export type Predicate<T> = (item: T) => boolean;
 /**
  * Same as Predicate, but accepts two parameters.
  */
-export type BiPredicate<T, S> = (item1: T, item2: S) => boolean;
+export type BiPredicate<T1, T2 = T1> = (item1: T1, item2: T2) => boolean;
 
 /**
  * Same as Predicate, but accepts three parameters.
  */
-export type TriPredicate<T, S, U> = (item1: T, item2: S, item3: U) => boolean;
+export type TriPredicate<T1, T2 = T1, T3 = T2> = (item1: T1, item2: T2, item3: T3) => boolean;
 
 /**
  * An equator that takes to items and checks whether they are
@@ -692,6 +693,42 @@ export interface NumberObject<T> {
  */
 export interface Comparable<T> {
     compareTo(rhs: T): number;
+}
+
+/**
+ * An interface for equatable objects of the same type.
+ * They are checked for equality via a special method `equals`.
+ * @typeparam T Type of the objects to compare.
+ *
+ * ```
+ * class Entity implements Equatable<Entity> {
+ *   private id: number;
+ *   private name: string;
+ *   private mail: string;
+ *
+ *   constructor(id: number, name: string, mail: string) {
+ *     this.id = id;
+ *     this.name = name;
+ *     this.mail = mail;
+ *   }
+ *
+ *   equals(rhs: Entity) {
+ *     return rhs !== undefined && this.id === rhs.id;
+ *   }
+ * }
+ * const user = DatabaseAPI.getById(1);
+ *
+ * // ... some code
+ *
+ * // This creates a new user instance
+ * const sameUser = DatabaseAPI.getById(1);
+ *
+ * user === sameUser; // => false
+ * user.equals(sameUser) // => true
+ * ```
+ */
+export interface Equatable<T> {
+    equals(rhs: T): boolean;
 }
 
 // Iterators
