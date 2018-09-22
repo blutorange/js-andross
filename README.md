@@ -57,6 +57,7 @@ See the [documentation](https://blutorange.github.io/js-andross/) for a list of 
 
 # Changes
 
+- 0.3.7 Added types `ReversibleFunction`, `ReversibleBiFunction`, `ReversibleTriFunction`.
 - 0.3.6 Added type `Equatable` and added defaults for type parameters of `BiConsumer`/`TriConsumer` and `BiSupplier`/`TriSupplier`.
 - 0.3.5 Added an optional type parameter `K` to `StringObject`, allowing you to restrict the available keys. Also removed the `*.ts` source files from the NPM package. The source file made webpack with `ts-loader` work incorrectly.
 - 0.3.4 Added types `RectSize`, `Rectangle`, `MinMaxRectangle`, `CardinalDirection4/8/16/32`, `ReadonlyFor`, `ReadonlyExcept`, `MatchingKeys`.

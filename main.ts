@@ -365,20 +365,96 @@ export type Runnable = () => void;
  * @typeparam T Type of the function's argument.
  * @typeparam R Type of the function's return value.
  */
-export type TypedFunction<TParam1, TReturn> = (arg: TParam1)  => TReturn;
+export type TypedFunction<TParam, TReturn = TParam> = (arg: TParam)  => TReturn;
 
 /**
  * Same as TypedFunction, but takes two arguments.
  * @see {@link TypedFunction}
  */
-export type TypedBiFunction<TParam1, TParam2, TReturn> = (arg1: TParam1, arg2: TParam2)  => TReturn;
+export type TypedBiFunction<TParam1, TParam2 = TParam1, TReturn = TParam1> = (arg1: TParam1, arg2: TParam2)  => TReturn;
 
 /**
  * Same as TypedFunction, but takes three arguments.
  * @see {@link TypedFunction}
  */
-export type TypedTriFunction<TParam1, TParam2, TParam3, TReturn> =
+export type TypedTriFunction<TParam1, TParam2 = TParam1, TParam3 = TParam2, TReturn = TParam3> =
     (arg1: TParam1, arg2: TParam2, arg3: TParam3) => TReturn;
+
+/**
+ * Interface for a reversible function.
+ *
+ * ```typescript
+ * const linearFunction: ReversibleFunction<number> = {
+ *   forward: x => 2 * x + 3,
+ *   backward: y => 0.5 * (y - 3);
+ * }
+ * ```
+ * linearFunction.forward(1); // => 5
+ * linearFunction.backward(5); // => 1
+ * linearFunction.backward(linearFunction.forward(Math.PI)); // => 3.141...
+ * linearFunction.forward(linearFunction.backward(Math.PI)); // => 3.141...
+ * ```
+ *
+ * @typeparam TParam Type of the function argument.
+ * @typeparam TParam Type of the function return value.
+ */
+export interface ReversibleFunction<TParam, TReturn = TParam> {
+    forward(param: TParam): TReturn;
+    backward(param: TReturn): TParam;
+}
+
+/**
+ * Interface for a reversible function.
+ *
+ * ```typescript
+ * class Vector2 {
+ *   constructor(public x: number, public y: number);
+ * }
+ *
+ * const field: ReversibleBiFunction<number, Vector2> = {
+ *   forward: (x, y) => new Vector2(2*x , 2*y),
+ *   backward: r => [0.5 * r.x, 0.5 * r.y],
+ * }
+ *
+ * const r = field.forward(2, 1); // => Vector2(4, 2)
+ * field.backward(r); // => [2, 1]
+ * ```
+ *
+ * @typeparam TParam1 Type of the first function argument.
+ * @typeparam TParam2 Type of the second function argument.
+ * @typeparam TParam Type of the function return value.
+ */
+export interface ReversibleBiFunction<TParam1, TParam2 = TParam1, TReturn = TParam2> {
+    forward(param1: TParam1, param2: TParam2): TReturn;
+    backward(param: TReturn): Pair<TParam1, TParam2>;
+}
+
+/**
+ * Interface for a reversible function.
+ *
+ * ```typescript
+ * class Vector3 {
+ *   constructor(public x: number, public y: number, public z: number);
+ * }
+ *
+ * const field: ReversibleTriFunction<number, Vector3> = {
+ *   forward: (x, y, z) => new Vector3(2*x , 2*y, 2*z),
+ *   backward: r => [0.5 * r.x, 0.5 * r.y, 0.5 * r.z],
+ * }
+ *
+ * const r = field.forward(2, 1, 4); // => Vector3(4, 2, 8)
+ * field.backward(r); // => [2, 1, 4]
+ * ```
+ *
+ * @typeparam TParam1 Type of the first function argument.
+ * @typeparam TParam2 Type of the second function argument.
+ * @typeparam TParam3 Type of the third function argument.
+ * @typeparam TParam Type of the function return value.
+ */
+export interface ReversibleTriFunction<TParam1, TParam2 = TParam1, TParam3 = TParam2, TReturn = TParam3> {
+    forward(param1: TParam1, param2: TParam2, param3: TParam3): TReturn;
+    backward(param: TReturn): Triple<TParam1, TParam2, TParam3>;
+}
 
 /**
  * A supplier produces a value without an explicit input.
