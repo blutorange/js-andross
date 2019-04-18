@@ -33,7 +33,7 @@ class Users<T> {
   }
   getUserById(id: number): Maybe<User> {
     return this.users.find(user => user.id === id);
-  }
+  }npx tslint -c tslint.json main.ts
   getUsers(filter: Predicate<User>): User[] {
     return this.users.filter(filter);
   }
@@ -57,6 +57,8 @@ See the [documentation](https://blutorange.github.io/js-andross/) for a list of 
 
 # Changes
 
+- 0.3.9 Added types several types for extracting keys from objects, such as `PickPartial`, `PickMatching`, `PickAssignable`, `PartialKeys`, `AssignableKeys`, `RequiredFor`.
+- 0.3.8 Added type `Voidable`.
 - 0.3.7 Added types `ReversibleFunction`, `ReversibleBiFunction`, `ReversibleTriFunction`.
 - 0.3.6 Added type `Equatable` and added defaults for type parameters of `BiConsumer`/`TriConsumer` and `BiSupplier`/`TriSupplier`.
 - 0.3.5 Added an optional type parameter `K` to `StringObject`, allowing you to restrict the available keys. Also removed the `*.ts` source files from the NPM package. The source file made webpack with `ts-loader` work incorrectly.

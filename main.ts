@@ -21,6 +21,29 @@
 export type Maybe<T> = T | undefined;
 
 /**
+ * An optional return type for functions that must either
+ * explicitly return a value of a certain type; or not
+ * have a return statement. Note that a function without
+ * a return statement will return `undefined` when called.
+ *
+ * Contrast this with `Maybe<T>`: Even if the return type
+ * is declared as `undefined`, the function must still contain
+ * an explicit `return undefined` statement.
+ *
+ * ```typescript
+ * interface UndoableAction {
+ *   perform(): Voidable<Promise<void>>;
+ *   undo(): Voidable<Promise<void>>;
+ * }
+ * ```
+ *
+ * The above interface defines an action that can be undone. An action
+ * never return a value, it only performs some side effects. It also
+ * supports asynchronous actions by returning a promise.
+ */
+export type Voidable<T> = T | void;
+
+/**
  * Represents the constructor a class, ie. the `constructor functions that
  * returns a new instance of the class.
  *
@@ -262,11 +285,13 @@ export type PartialFor<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
  */
 export type ReadonlyFor<T, K extends keyof T> = Omit<T, K> & Readonly<Pick<T, K>>;
 
+export type RequiredFor<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
+
 /**
  * Gives all property keys whose types match the given type.
  *
  * ```typescript
- * export interface User {
+ * interface User {
  *   active: boolean;
  *   age: number;
  *   mail: string;
@@ -274,7 +299,7 @@ export type ReadonlyFor<T, K extends keyof T> = Omit<T, K> & Readonly<Pick<T, K>
  *   username: string;
  * }
  *
- * export function foo(stringKey: MatchingKeys<User, string>) {
+ * function foo(stringKey: MatchingKeys<User, string>) {
  *   // Variable stringKey now has the type
  *   // "mail" | "name" | "username"
  *   const b1 = stringKey === "mail"; // works
@@ -291,13 +316,163 @@ export type ReadonlyFor<T, K extends keyof T> = Omit<T, K> & Readonly<Pick<T, K>
  *
  * @typeparam TRecord Type of the base type. This is the type whose keys are searched for a match.
  * @typeparam TMatch Type to match the keys of the record against.
- * @typeparam K Type whose keys are considered in the output. Defaults to the keys of the record.
+ * @typeparam K Keys are considered in the output. Defaults to the keys of the record.
  */
 export type MatchingKeys<
   TRecord,
   TMatch,
   K extends keyof TRecord = keyof TRecord
 > = K extends (TRecord[K] extends TMatch ? K : never) ? K : never;
+
+/**
+ * Gives all property keys to which the given type can be assigned.
+ *
+ * ```typescript
+ * interface User {
+ *   age: string | number;
+ *   email: string | undefined;
+ *   active?: boolean;
+ * }
+ *
+ * // A string can be assigned to the properties age and email.
+ * type userString = AssignableKeys<User, string>; // "age"|"email"
+ *
+ * // undefined can be assigned only to the properties email and active.
+ * type userUndefined = AssignableKeys<User, string>; // "email"|"active"
+ * ```
+ *
+ * @typeparam TRecord Type of the base type. This is the type whose keys are searched for a match.
+ * @typeparam TMatch Type to match the keys of the record against.
+ * @typeparam K Keys are considered in the output. Defaults to the keys of the record.
+ */
+export type AssignableKeys<
+    TRecord,
+    TMatch,
+    K extends keyof TRecord = keyof TRecord
+> = K extends (TMatch extends TRecord[K] ? K : never) ? K : never;
+
+export type UnassignableKeys<
+    TRecord,
+    TMatch,
+    K extends keyof TRecord = keyof TRecord
+> = K extends (TMatch extends TRecord[K] ? K : never) ? never : K;
+
+/**
+ * Shortcut for `AssignableKeys<TRecord, undefined, K>`. Gives all property keys
+ * that are optional, ie. to which `undefined` can be assigned.
+ *
+ * ```typescript
+ * interface Data {
+ *   foo: number;
+ *   bar?: number;
+ *   baz: string|undefined;
+ * }
+ *
+ * // "bar"|"baz"
+ * type PartialData = PartialKeys<Data>;
+ * ```
+ *
+ * @typeparam TRecord Type of the base type. This is the type whose keys are searched for a match.
+ * @typeparam K Keys are considered in the output. Defaults to the keys of the record.
+ */
+export type PartialKeys<
+    TRecord,
+    K extends keyof TRecord = keyof TRecord
+> = AssignableKeys<TRecord, undefined, K>;
+
+export type RequiredKeys<
+    TRecord,
+    K extends keyof TRecord = keyof TRecord
+> = UnassignableKeys<TRecord, undefined, K>;
+
+/**
+ * From TRecord, pick a set of properties to which the given type can be assigned.
+ *
+ * ```typescript
+ * interface Data {
+ *   foo: string | number;
+ *   bar?: number;
+ *   baz: string;
+ * }
+ *
+ * // {foo: string|number, baz: string}
+ * type StringData = PickAssignable<Data, string>;
+ * ```
+ *
+ * @typeparam TRecord Type of the base type. This is the type whose keys are searched for a match.
+ * @typeparam TMatch Type to match the keys of the record against.
+ * @typeparam K Keys are considered in the output. Defaults to the keys of the record.
+ */
+export type PickAssignable<
+    TRecord,
+    TMatch,
+    K extends keyof TRecord = keyof TRecord
+> = Pick<TRecord, AssignableKeys<TRecord, TMatch, K>>;
+
+/**
+ * From TRecord, pick a set of properties that match the given type.
+ *
+ * ```typescript
+ * interface Data {
+ *   foo: string | number;
+ *   bar?: number;
+ *   baz: string;
+ * }
+ *
+ * // {baz: string}
+ * type StringData = PickAssignable<Data, string>;
+ * ```
+ *
+ * @typeparam TRecord Type of the base type. This is the type whose keys are searched for a match.
+ * @typeparam TMatch Type to match the keys of the record against.
+ * @typeparam K Keys are considered in the output. Defaults to the keys of the record.
+ */
+export type PickMatching<
+    TRecord,
+    TMatch,
+    K extends keyof TRecord = keyof TRecord
+> = Pick<TRecord, MatchingKeys<TRecord, TMatch, K>>;
+
+/**
+ * Pick the set of properties that are optional, eg. to which `undefined` can be assigned.
+ *
+ * ```typescript
+ * abstract class Model<TAttributes> {
+ *  private attributes: TAttributes;
+ *  constructor(attributes: TAttributes) {
+ *    this.attributes = Object.assign({}, this.getDefaults(), attributes);
+ *  }
+ *  // Must return defaults for all optional attributes.
+ *  abstract getDefaults(): Required<PickPartial<TAttributes>>;
+ * }
+ *
+ * interface UserAttributes {
+ *   username: string;
+ *   age?: number;
+ *   email?: string;
+ * }
+ *
+ * class UserModel extends Model<UserAttributes> {
+ *   getDefaults() {
+ *     return {
+ *       email: "johndoe@example.com",
+ *       age: 18,
+ *     };
+ *   }
+ * }
+ * ```
+ * @typeparam TRecord Type of the base type. This is the type whose keys are searched for a match.
+ * @typeparam K Keys are considered in the output. Defaults to the keys of the record.
+ */
+export type PickPartial<
+    TRecord,
+    K extends keyof TRecord = keyof TRecord
+> = Pick<TRecord, PartialKeys<TRecord, K>>;
+
+export type PickRequired<
+    TRecord,
+    K extends keyof TRecord = keyof TRecord
+> = Pick<TRecord, RequiredKeys<TRecord, K>>;
 
 /**
  * Takes a type and create a new type with some properties overwritten with a different type.

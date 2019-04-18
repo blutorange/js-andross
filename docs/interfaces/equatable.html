@@ -935,19 +935,19 @@ img { max-width: 100%; }
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Type of the objects to compare.</p>
-							<pre><code><span class="hljs-keyword">class</span> Entity <span class="hljs-keyword">implements</span> Equatable&lt;Entity&gt; {
-  <span class="hljs-keyword">private</span> id: <span class="hljs-built_in">number</span>;
+							<pre><code><span class="hljs-keyword">class</span> <span class="hljs-symbol">Entity</span> <span class="hljs-symbol">implements</span> <span class="hljs-symbol">Equatable</span>&lt;<span class="hljs-symbol">Entity</span>&gt; {
+  <span class="hljs-keyword">private</span> id: number;
   <span class="hljs-keyword">private</span> name: <span class="hljs-built_in">string</span>;
   <span class="hljs-keyword">private</span> mail: <span class="hljs-built_in">string</span>;
 
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">id: <span class="hljs-built_in">number</span>, name: <span class="hljs-built_in">string</span>, mail: <span class="hljs-built_in">string</span></span>) {
+  constructor(id: number, name: <span class="hljs-built_in">string</span>, mail: <span class="hljs-built_in">string</span>) {
     <span class="hljs-keyword">this</span>.id = id;
     <span class="hljs-keyword">this</span>.name = name;
     <span class="hljs-keyword">this</span>.mail = mail;
   }
 
   equals(rhs: Entity) {
-    <span class="hljs-keyword">return</span> rhs !== <span class="hljs-literal">undefined</span> &amp;&amp; <span class="hljs-keyword">this</span>.id === rhs.id;
+    <span class="hljs-keyword">return</span> rhs !== undefined &amp;&amp; <span class="hljs-keyword">this</span>.id === rhs.id;
   }
 }
 <span class="hljs-keyword">const</span> user = DatabaseAPI.getById(<span class="hljs-number">1</span>);
@@ -997,7 +997,7 @@ user.equals(sameUser) <span class="hljs-comment">// =&gt; true</span></code></pr
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/8f24539/main.ts#L807">main.ts:807</a></li>
+								<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L982">main.ts:982</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
