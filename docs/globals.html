@@ -1019,6 +1019,9 @@ img { max-width: 100%; }
 			<a href="globals.html#deeppartial" class="tsd-kind-icon">Deep<wbr>Partial</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="globals.html#discriminateunion" class="tsd-kind-icon">Discriminate<wbr>Union</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="globals.html#equator" class="tsd-kind-icon">Equator</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
@@ -1148,6 +1151,9 @@ img { max-width: 100%; }
 			<a href="globals.html#unassignablekeys" class="tsd-kind-icon">Unassignable<wbr>Keys</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="globals.html#unionmap" class="tsd-kind-icon">Union<wbr>Map</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="globals.html#voidable" class="tsd-kind-icon">Voidable</a>
 		</li>
 	</ul>
@@ -1194,6 +1200,7 @@ img { max-width: 100%; }
 			<p>See the <a href="https://blutorange.github.io/js-andross/">documentation</a> for a list of all interfaces and types with a short description.</p>
 			<h1 id="changes">Changes</h1>
 			<ul>
+				<li>0.3.10 Added some types for discriminated (tagged) unions.</li>
 				<li>0.3.9 Added types several types for extracting keys from objects, such as <code>PickPartial</code>, <code>PickMatching</code>, <code>PickAssignable</code>, <code>PartialKeys</code>, <code>AssignableKeys</code>, <code>RequiredFor</code>.</li>
 				<li>0.3.8 Added type <code>Voidable</code>.</li>
 				<li>0.3.7 Added types <code>ReversibleFunction</code>, <code>ReversibleBiFunction</code>, <code>ReversibleTriFunction</code>.</li>
@@ -1264,6 +1271,7 @@ npm run build</code></pre>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#consumer" class="tsd-kind-icon">Consumer</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#decuple" class="tsd-kind-icon">Decuple</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#deeppartial" class="tsd-kind-icon">Deep<wbr>Partial</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#discriminateunion" class="tsd-kind-icon">Discriminate<wbr>Union</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#equator" class="tsd-kind-icon">Equator</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#jsoncompoundvalue" class="tsd-kind-icon">JSONCompound<wbr>Value</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#jsonprimitivevalue" class="tsd-kind-icon">JSONPrimitive<wbr>Value</a></li>
@@ -1307,6 +1315,7 @@ npm run build</code></pre>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#typedtrifunction" class="tsd-kind-icon">Typed<wbr>Tri<wbr>Function</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#unaryoperator" class="tsd-kind-icon">Unary<wbr>Operator</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#unassignablekeys" class="tsd-kind-icon">Unassignable<wbr>Keys</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#unionmap" class="tsd-kind-icon">Union<wbr>Map</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#voidable" class="tsd-kind-icon">Voidable</a></li>
 						</ul>
 					</section>
@@ -1321,7 +1330,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Assignable<wbr>Keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AssignableKeys&lt;TRecord, TMatch, K&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L348">main.ts:348</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L348">main.ts:348</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1347,7 +1356,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Bi<wbr>Consumer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L686">main.ts:686</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L780">main.ts:780</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1391,7 +1400,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Bi<wbr>Predicate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L737">main.ts:737</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L831">main.ts:831</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1430,7 +1439,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Bi<wbr>Supplier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L658">main.ts:658</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L752">main.ts:752</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1465,7 +1474,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Binary<wbr>Operator<span class="tsd-signature-symbol">:</span> <a href="globals.html#typedbifunction" class="tsd-signature-type">TypedBiFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L718">main.ts:718</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L812">main.ts:812</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1488,7 +1497,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Cardinal<wbr>Direction16<span class="tsd-signature-symbol">:</span> <a href="globals.html#cardinaldirection8" class="tsd-signature-type">CardinalDirection8</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NorthNortheast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"EastNortheast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"EastSoutheast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SouthSoutheast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SouthSouthwest"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"WestSouthwest"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"WestNorthwest"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NorthNorthwest"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L1171">main.ts:1171</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L1265">main.ts:1265</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1503,7 +1512,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Cardinal<wbr>Direction32<span class="tsd-signature-symbol">:</span> <a href="globals.html#cardinaldirection16" class="tsd-signature-type">CardinalDirection16</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NorthByEast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NortheastByNorth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NortheastByEast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"EastByNorth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"EastBySouth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SoutheastByEast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SoutheastBySouth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SouthByEast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SouthByWest"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SouthwestBySouth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SouthwestByWest"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"WestBySouth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"WestByNorth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NorthwestByWest"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NorthwestByNorth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NorthByWest"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L1176">main.ts:1176</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L1270">main.ts:1270</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1518,7 +1527,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Cardinal<wbr>Direction4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"North"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"East"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"South"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"West"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L1165">main.ts:1165</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L1259">main.ts:1259</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1533,7 +1542,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Cardinal<wbr>Direction8<span class="tsd-signature-symbol">:</span> <a href="globals.html#cardinaldirection4" class="tsd-signature-type">CardinalDirection4</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Northeast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Southeast"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Southwest"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Northwest"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L1168">main.ts:1168</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L1262">main.ts:1262</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1548,7 +1557,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Comparator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L777">main.ts:777</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L871">main.ts:871</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1605,7 +1614,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Constructor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L61">main.ts:61</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L61">main.ts:61</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1632,7 +1641,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Consumer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L680">main.ts:680</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L774">main.ts:774</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1674,7 +1683,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Decuple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T3</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T4</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T5</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T6</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T7</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T8</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T9</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T10</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L841">main.ts:841</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L935">main.ts:935</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1689,7 +1698,7 @@ npm run build</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Deep<wbr>Partial<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L137">main.ts:137</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L137">main.ts:137</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1744,12 +1753,62 @@ findUserBy({
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+				<a name="discriminateunion" class="tsd-anchor"></a>
+				<h3>Discriminate<wbr>Union</h3>
+				<div class="tsd-signature tsd-kind-icon">Discriminate<wbr>Union<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DiscriminateUnion&lt;T, K, V&gt;</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L548">main.ts:548</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Takes a type and filter them, leaving only types that have a given property of a given type.</p>
+					</div>
+					<pre><code class="language-typescript"><span class="hljs-keyword">interface</span> Square {
+  kind: <span class="hljs-string">"square"</span>,
+  geometry: {
+    side: <span class="hljs-built_in">number</span>;
+  }
+}
+
+<span class="hljs-keyword">interface</span> Circle {
+  kind: <span class="hljs-string">"circle"</span>,
+  geometry: {
+    radius: <span class="hljs-built_in">number</span>;
+  }
+}
+
+<span class="hljs-keyword">interface</span> Rectangle {
+  kind: <span class="hljs-string">"rectangle"</span>,
+  geometry: {
+    horizontalSide: <span class="hljs-built_in">number</span>;
+    verticalSide: <span class="hljs-built_in">number</span>;
+  }
+}
+
+<span class="hljs-keyword">interface</span> Ellipsis {
+  kind: <span class="hljs-string">"ellipsis"</span>,
+  geometry: {
+    horizontalHalfAxis: <span class="hljs-built_in">number</span>;
+    verticalHalfAxis: <span class="hljs-built_in">number</span>;
+   }
+}
+
+<span class="hljs-comment">// Union of all shapes</span>
+<span class="hljs-keyword">type</span> Shape = Square | Circle | Rectangle | Ellipsis;
+
+<span class="hljs-comment">// Select a particular shape when given its kind</span>
+<span class="hljs-keyword">type</span> ellipsis = DiscriminateUnion&lt;Shape, <span class="hljs-string">"kind"</span>, <span class="hljs-string">"ellipsis"</span>&gt;;</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="equator" class="tsd-anchor"></a>
 				<h3>Equator</h3>
 				<div class="tsd-signature tsd-kind-icon">Equator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L757">main.ts:757</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L851">main.ts:851</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1802,7 +1861,7 @@ findUserBy({
 				<div class="tsd-signature tsd-kind-icon">JSONCompound<wbr>Value<span class="tsd-signature-symbol">:</span> <a href="interfaces/jsonobject.html" class="tsd-signature-type">JSONObject</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/jsonarray.html" class="tsd-signature-type">JSONArray</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L84">main.ts:84</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L84">main.ts:84</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1817,7 +1876,7 @@ findUserBy({
 				<div class="tsd-signature tsd-kind-icon">JSONPrimitive<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L73">main.ts:73</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L73">main.ts:73</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1832,7 +1891,7 @@ findUserBy({
 				<div class="tsd-signature tsd-kind-icon">JSONValue<span class="tsd-signature-symbol">:</span> <a href="globals.html#jsoncompoundvalue" class="tsd-signature-type">JSONCompoundValue</a><span class="tsd-signature-symbol"> | </span><a href="globals.html#jsonprimitivevalue" class="tsd-signature-type">JSONPrimitiveValue</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L87">main.ts:87</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L87">main.ts:87</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1847,7 +1906,7 @@ findUserBy({
 				<div class="tsd-signature tsd-kind-icon">Key<wbr>Extractor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L809">main.ts:809</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L903">main.ts:903</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1910,7 +1969,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Key<wbr>Value<wbr>Pair<span class="tsd-signature-symbol">:</span> <a href="globals.html#pair" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L855">main.ts:855</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L949">main.ts:949</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1927,7 +1986,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Matching<wbr>Keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MatchingKeys&lt;TRecord, TMatch, K&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L321">main.ts:321</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L321">main.ts:321</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1963,7 +2022,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Maybe<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L21">main.ts:21</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L21">main.ts:21</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1989,7 +2048,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Nonuple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T3</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T4</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T5</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T6</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T7</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T8</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T9</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L838">main.ts:838</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L932">main.ts:932</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2004,7 +2063,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Octuple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T3</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T4</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T5</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T6</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T7</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T8</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L835">main.ts:835</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L929">main.ts:929</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2019,7 +2078,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Omit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Exclude</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">keyof T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L154">main.ts:154</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L154">main.ts:154</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2038,7 +2097,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Overwrite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">T2</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L500">main.ts:500</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L500">main.ts:500</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2067,7 +2126,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Pair<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L817">main.ts:817</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L911">main.ts:911</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2082,7 +2141,7 @@ byName.getAt(<span class="hljs-string">"Cleopatra"</span>);</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Partial<wbr>Except<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#omit" class="tsd-signature-type">Omit</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L220">main.ts:220</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L220">main.ts:220</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2119,7 +2178,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Partial<wbr>For<span class="tsd-signature-symbol">:</span> <a href="globals.html#omit" class="tsd-signature-type">Omit</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L264">main.ts:264</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L264">main.ts:264</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2145,7 +2204,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Partial<wbr>Keys<span class="tsd-signature-symbol">:</span> <a href="globals.html#assignablekeys" class="tsd-signature-type">AssignableKeys</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L378">main.ts:378</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L378">main.ts:378</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2169,7 +2228,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Pick<wbr>Assignable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><a href="globals.html#assignablekeys" class="tsd-signature-type">AssignableKeys</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TMatch</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L406">main.ts:406</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L406">main.ts:406</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2192,7 +2251,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Pick<wbr>Matching<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><a href="globals.html#matchingkeys" class="tsd-signature-type">MatchingKeys</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TMatch</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L430">main.ts:430</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L430">main.ts:430</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2215,7 +2274,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Pick<wbr>Partial<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><a href="globals.html#partialkeys" class="tsd-signature-type">PartialKeys</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L467">main.ts:467</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L467">main.ts:467</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2253,7 +2312,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Pick<wbr>Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><a href="globals.html#requiredkeys" class="tsd-signature-type">RequiredKeys</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L472">main.ts:472</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L472">main.ts:472</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2263,7 +2322,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Predicate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L732">main.ts:732</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L826">main.ts:826</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2309,7 +2368,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Quadruple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T3</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T4</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L823">main.ts:823</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L917">main.ts:917</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2324,7 +2383,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Quintuple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T3</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T4</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T5</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L826">main.ts:826</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L920">main.ts:920</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2339,7 +2398,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Readonly<wbr>Except<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#omit" class="tsd-signature-type">Omit</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L242">main.ts:242</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L242">main.ts:242</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2365,7 +2424,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Readonly<wbr>For<span class="tsd-signature-symbol">:</span> <a href="globals.html#omit" class="tsd-signature-type">Omit</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L286">main.ts:286</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L286">main.ts:286</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2391,7 +2450,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Remove<wbr>From<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Exclude</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">keyof T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">keyof K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L187">main.ts:187</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L187">main.ts:187</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2429,7 +2488,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Required<wbr>For<span class="tsd-signature-symbol">:</span> <a href="globals.html#omit" class="tsd-signature-type">Omit</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L288">main.ts:288</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L288">main.ts:288</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2439,7 +2498,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Required<wbr>Keys<span class="tsd-signature-symbol">:</span> <a href="globals.html#unassignablekeys" class="tsd-signature-type">UnassignableKeys</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TRecord</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L383">main.ts:383</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L383">main.ts:383</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2449,7 +2508,7 @@ createEntity({id: <span class="hljs-number">1</span>, age: <span class="hljs-num
 				<div class="tsd-signature tsd-kind-icon">Runnable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L530">main.ts:530</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L624">main.ts:624</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2496,7 +2555,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Septuple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T3</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T4</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T5</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T6</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T7</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L832">main.ts:832</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L926">main.ts:926</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2511,7 +2570,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Sextuple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T3</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T4</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T5</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T6</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L829">main.ts:829</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L923">main.ts:923</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2526,7 +2585,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Single<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L814">main.ts:814</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L908">main.ts:908</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2541,7 +2600,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">String<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L895">main.ts:895</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L989">main.ts:989</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2579,7 +2638,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Supplier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L652">main.ts:652</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L746">main.ts:746</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2619,7 +2678,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Tri<wbr>Consumer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L692">main.ts:692</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L786">main.ts:786</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2666,7 +2725,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Tri<wbr>Predicate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L742">main.ts:742</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L836">main.ts:836</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2708,7 +2767,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Tri<wbr>Supplier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L664">main.ts:664</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L758">main.ts:758</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2743,7 +2802,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Triple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T3</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L820">main.ts:820</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L914">main.ts:914</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2758,7 +2817,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Typed<wbr>BiFunction<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L549">main.ts:549</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L643">main.ts:643</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2802,7 +2861,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Typed<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L543">main.ts:543</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L637">main.ts:637</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2848,7 +2907,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Typed<wbr>Tri<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L555">main.ts:555</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L649">main.ts:649</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2895,7 +2954,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Unary<wbr>Operator<span class="tsd-signature-symbol">:</span> <a href="globals.html#typedfunction" class="tsd-signature-type">TypedFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L705">main.ts:705</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L799">main.ts:799</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2918,9 +2977,64 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Unassignable<wbr>Keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">UnassignableKeys&lt;TRecord, TMatch, K&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L354">main.ts:354</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L354">main.ts:354</a></li>
 					</ul>
 				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+				<a name="unionmap" class="tsd-anchor"></a>
+				<h3>Union<wbr>Map</h3>
+				<div class="tsd-signature tsd-kind-icon">Union<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L594">main.ts:594</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Given a discriminated (tagged) union, creates a map between the tag (discriminant) and the corresponding type.</p>
+					</div>
+					<pre><code class="language-typescript"><span class="hljs-keyword">interface</span> Square {
+  kind: <span class="hljs-string">"square"</span>,
+  geometry: {
+    side: <span class="hljs-built_in">number</span>;
+  }
+}
+
+<span class="hljs-keyword">interface</span> Circle {
+  kind: <span class="hljs-string">"circle"</span>,
+  geometry: {
+    radius: <span class="hljs-built_in">number</span>;
+  }
+}
+
+<span class="hljs-keyword">interface</span> Rectangle {
+  kind: <span class="hljs-string">"rectangle"</span>,
+  geometry: {
+    horizontalSide: <span class="hljs-built_in">number</span>;
+    verticalSide: <span class="hljs-built_in">number</span>;
+  }
+}
+
+<span class="hljs-keyword">interface</span> Ellipsis {
+  kind: <span class="hljs-string">"ellipsis"</span>,
+  geometry: {
+    horizontalHalfAxis: <span class="hljs-built_in">number</span>;
+    verticalHalfAxis: <span class="hljs-built_in">number</span>;
+   }
+}
+
+<span class="hljs-comment">// Union of all shapes</span>
+<span class="hljs-keyword">type</span> Shape = Square | Circle | Rectangle | Ellipsis;
+
+<span class="hljs-comment">// Resolves to {square: Square, circle: Circle, rectangle: Rectangle, ellipsis: Ellipsis}</span>
+<span class="hljs-keyword">type</span> kindToShape = UnionMap&lt;Shape, <span class="hljs-string">"kind"</span>&gt;;</code></pre>
+				</div>
+				<div class="tsd-type-declaration">
+					<h4>Type declaration</h4>
+					<ul class="tsd-parameters">
+					</ul>
+				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="voidable" class="tsd-anchor"></a>
@@ -2928,7 +3042,7 @@ runTest( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</
 				<div class="tsd-signature tsd-kind-icon">Voidable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/6f129a5/main.ts#L44">main.ts:44</a></li>
+						<li>Defined in <a href="https://github.com/blutorange/js-andross/blob/c9f420b/main.ts#L44">main.ts:44</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

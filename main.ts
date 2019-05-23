@@ -501,6 +501,100 @@ export type Overwrite<T1, T2> = {
     [P in Exclude<keyof T1, keyof T2>]: T1[P]
 } & T2;
 
+/**
+ * Takes a type and filter them, leaving only types that have a given property of a given type.
+ *
+ * ```typescript
+ * interface Square {
+ *   kind: "square",
+ *   geometry: {
+ *     side: number;
+ *   }
+ * }
+ *
+ * interface Circle {
+ *   kind: "circle",
+ *   geometry: {
+ *     radius: number;
+ *   }
+ * }
+ *
+ * interface Rectangle {
+ *   kind: "rectangle",
+ *   geometry: {
+ *     horizontalSide: number;
+ *     verticalSide: number;
+ *   }
+ * }
+ *
+ * interface Ellipsis {
+ *   kind: "ellipsis",
+ *   geometry: {
+ *     horizontalHalfAxis: number;
+ *     verticalHalfAxis: number;
+ *    }
+ * }
+ *
+ * // Union of all shapes
+ * type Shape = Square | Circle | Rectangle | Ellipsis;
+ *
+ * // Select a particular shape when given its kind
+ * type ellipsis = DiscriminateUnion<Shape, "kind", "ellipsis">;
+ * ```
+ * @typeparam T Type to filter.
+ * @typeparam K Property name by which to filter.
+ * @typeparam V Type which the property must have.
+ */
+export type DiscriminateUnion<T, K extends keyof T, V extends T[K] = T[K]> = T extends Record<K, V> ? T : never;
+
+/**
+ * Given a discriminated (tagged) union, creates a map between the tag (discriminant) and the corresponding type.
+ *
+ * ```typescript
+ * interface Square {
+ *   kind: "square",
+ *   geometry: {
+ *     side: number;
+ *   }
+ * }
+ *
+ * interface Circle {
+ *   kind: "circle",
+ *   geometry: {
+ *     radius: number;
+ *   }
+ * }
+ *
+ * interface Rectangle {
+ *   kind: "rectangle",
+ *   geometry: {
+ *     horizontalSide: number;
+ *     verticalSide: number;
+ *   }
+ * }
+ *
+ * interface Ellipsis {
+ *   kind: "ellipsis",
+ *   geometry: {
+ *     horizontalHalfAxis: number;
+ *     verticalHalfAxis: number;
+ *    }
+ * }
+ *
+ * // Union of all shapes
+ * type Shape = Square | Circle | Rectangle | Ellipsis;
+ *
+ * // Resolves to {square: Square, circle: Circle, rectangle: Rectangle, ellipsis: Ellipsis}
+ * type kindToShape = UnionMap<Shape, "kind">;
+ * ```
+ *
+ * @typeparam T Union type.
+ * @typeparam K Name of the property that is the tag (discriminant) for the union
+ */
+export type UnionMap<T extends Record<K, string>, K extends keyof T> = {
+    [P in T[K]]: DiscriminateUnion<T, K, P>
+};
+
 // Interfaces representing special types of functions. These are often used
 // in functional programming.
 

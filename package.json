@@ -1,6 +1,6 @@
 {
   "name": "andross",
-  "version": "0.3.6",
+  "version": "0.3.10",
   "description": "Common interfaces and types for typescript.",
   "main": "main.js",
   "scripts": {

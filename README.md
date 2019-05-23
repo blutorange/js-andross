@@ -57,6 +57,7 @@ See the [documentation](https://blutorange.github.io/js-andross/) for a list of 
 
 # Changes
 
+- 0.3.10 Added some types for discriminated (tagged) unions.
 - 0.3.9 Added types several types for extracting keys from objects, such as `PickPartial`, `PickMatching`, `PickAssignable`, `PartialKeys`, `AssignableKeys`, `RequiredFor`.
 - 0.3.8 Added type `Voidable`.
 - 0.3.7 Added types `ReversibleFunction`, `ReversibleBiFunction`, `ReversibleTriFunction`.
